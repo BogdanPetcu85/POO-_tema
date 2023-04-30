@@ -3,15 +3,19 @@
 
 using namespace System;
 
-int main()
+int main(array<System::String^>^ args)
 {
-    CreditCardAccount ^myAccount;
-    myAccount = gcnew CreditCardAccount;
-    myAccount->SetCreditLimit(1000);
-    myAccount->MakePurchase(1000);
-    myAccount->MakeRepayment(700);
-    myAccount->PrintStatement();
-    long num = myAccount->GetAccountNumber();
-    Console::Write("Account number:");
-    Console""WriteLine(num);
+	Console::WriteLine("Creating account object");
+	CreditCardAccount^ account1;
+	account1 = gcnew CreditCardAccount(12345, 2000);
+	Console::WriteLine("\nMaking a purchase (300)");
+	account1->MakePurchase(300);
+	Console::WriteLine("\nMaking a purchase (700)");
+	account1->MakePurchase(700);
+	Console::WriteLine("\nMaking a purchase (500)");
+	account1->MakePurchase(500);
+	Console::WriteLine("\nRedeeming points");
+	account1->RedeemLoyaltyPoints();
+
+	
 }
